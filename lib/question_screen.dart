@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/answer_button.dart';
-import 'package:quizapp/questions.dart';
+import 'package:quizapp/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key, required this.onSelectedAnswer});
@@ -31,6 +31,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
       margin: const EdgeInsets.all(20),
       child: SizedBox(
         child: Column(
+          spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -43,7 +44,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height: 20),
             ...currentQuestion.answers.map((answer) {
               return AnswerButton(
                 answerText: answer,

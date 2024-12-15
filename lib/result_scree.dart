@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/questions.dart';
-import 'package:quizapp/questions_summary.dart';
+import 'package:quizapp/data/questions.dart';
+import 'package:quizapp/summary/index.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen(
@@ -35,6 +35,7 @@ class ResultScreen extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(40),
         child: Column(
+          spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -47,13 +48,19 @@ class ResultScreen extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height: 20),
             QuestionsSummary(summaryData: summaryData),
-            ElevatedButton(
+            OutlinedButton.icon(
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+                // set border color
+                side: const BorderSide(
+                    color: Color.fromARGB(255, 255, 255, 255), width: 2),
+              ),
               onPressed: () {
                 onRestartQuiz();
               },
-              child: const Text('Restart Quiz'),
+              label: const Text('Restart Quiz'),
+              icon: const Icon(Icons.refresh, color: Colors.white),
             ),
           ],
         ),
